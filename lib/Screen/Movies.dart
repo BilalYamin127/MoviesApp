@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moviesapp/widget/moviesLIstItems.dart';
+import 'package:moviesapp/Screen/moviesLIstItems.dart';
 
 class MoviesScreen extends StatelessWidget {
   const MoviesScreen({super.key});
@@ -8,8 +8,8 @@ class MoviesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      color: Colors.black,
-      child: MoviesListItem(),
+      color: Colors.black87,
+      child: const MoviesListScreen(),
     ));
   }
 }

@@ -155,9 +155,7 @@ const dummyMovies = [
     movieactorurl: //
         'https://upload.wikimedia.org/wikipedia/commons/f/f0/Allu_Arjun_at_62nd_Filmfare_awards_south.jpg',
     description: [
-      //
-
-      'Pushpa: The Rise is a 2021 Indian Telugu-language action drama film[15] written and directed by Sukumar.It stars Allu Arjun as the title character alongside Fahadh Faasil (his Telugu debut), and Rashmika Mandanna while Jagadeesh Prathap Bandari, Sunil, Raj Tirandasu, Rao Ramesh, Dhananjaya, Anasuya Bharadwaj, Ajay and Ajay Ghosh play supporting roles.It is produced by Mythri Movie Makers in association with Muttamsetty Media. The first installment in the Pushpa film series, the film depicts the rise of a coolie Pushpa Raj in the smuggling syndicate of red sandalwood, a rare wood that grows only in the Seshachalam Hills of Tirupati in Andhra Pradesh state.'
+      'Pushpa: The Rise is a 2021 Indian Telugu-language action drama film written and directed by Sukumar.It stars Allu Arjun as the title character alongside Fahadh Faasil (his Telugu debut), and Rashmika Mandanna while Jagadeesh Prathap Bandari, Sunil, Raj Tirandasu, Rao Ramesh, Dhananjaya, Anasuya Bharadwaj, Ajay and Ajay Ghosh play supporting roles.It is produced by Mythri Movie Makers in association with Muttamsetty Media. The first installment in the Pushpa film series, the film depicts the rise of a coolie Pushpa Raj in the smuggling syndicate of red sandalwood, a rare wood that grows only in the Seshachalam Hills of Tirupati in Andhra Pradesh state.'
     ],
     duration: '2:58:50', //
     views: '387.6M', //
