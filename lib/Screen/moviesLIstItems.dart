@@ -83,7 +83,7 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
                         width: double.infinity,
                         fit: BoxFit.fill,
                       )
-                    : const Center(child: Text("No Movie Selected")),
+                    : const Center(child: Text(" Movie Selected")),
               ),
             ),
             Positioned(
