@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:moviesapp/Screen/Movies.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:moviesapp/Screen/movies_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    // Wrap your app with ProviderScope
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +23,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue,
         fontFamily: 'Roboto',
       ),
-      home: MoviesScreen(),
+      home: const MoviesScreen(),
     );
   }
 }

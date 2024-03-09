@@ -1,33 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moviesapp/model/movie.dart';
-import 'package:moviesapp/data/moviedData.dart';
 import 'package:expandable_text/expandable_text.dart';
+import 'package:moviesapp/provider/lives_movies_provider.dart';
 
-class MoviesDetailsScreen extends StatefulWidget {
-  const MoviesDetailsScreen({Key? key, required this.selectedMovie})
-      : super(key: key);
-  final List<Movie> myMovies = dummyMovies;
+class MoviesDetailsScreen extends ConsumerStatefulWidget {
+  const MoviesDetailsScreen({super.key, required this.selectedMovie});
 
   final Movie selectedMovie;
   @override
-  State<MoviesDetailsScreen> createState() => _MoviesDetailsScreenState();
+  ConsumerState<MoviesDetailsScreen> createState() =>
+      _MoviesDetailsScreenState();
 }
 
-class _MoviesDetailsScreenState extends State<MoviesDetailsScreen> {
-  List<Movie> getLiveMovies() {
-    // Filter movies that belong to the "Live" category
-    return widget.myMovies
-        .where((movie) => movie.category == Category.live)
-        .toList();
-  }
-
+class _MoviesDetailsScreenState extends ConsumerState<MoviesDetailsScreen> {
   bool _showAllLiveMovies = false;
 
   @override
   Widget build(BuildContext context) {
     final Movie movie = widget.selectedMovie;
+    final lm = ref.watch(liveMoviesprovider.notifier).getLiveMovies();
     final List<Movie> liveMovies =
-        _showAllLiveMovies ? getLiveMovies() : getLiveMovies().take(2).toList();
+        _showAllLiveMovies ? lm : lm.take(2).toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -49,7 +43,7 @@ class _MoviesDetailsScreenState extends State<MoviesDetailsScreen> {
                     movie.movieimageurl,
                     height: 300,
                     width: double.infinity,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                   Positioned(
                     left: 10,
@@ -197,7 +191,7 @@ class _MoviesDetailsScreenState extends State<MoviesDetailsScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 200,
                     width: double.infinity, // Adjust based on content
                     child: ListView.builder(
@@ -214,7 +208,7 @@ class _MoviesDetailsScreenState extends State<MoviesDetailsScreen> {
                             children: [
                               Image.network(
                                 liveMovie.movieimageurl,
-                                fit: BoxFit.fitWidth,
+                                fit: BoxFit.cover,
                               ),
                             ],
                           ),

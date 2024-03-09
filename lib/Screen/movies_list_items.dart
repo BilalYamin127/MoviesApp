@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moviesapp/Screen/moviesDetailsScreen.dart';
-import 'package:moviesapp/data/moviedData.dart';
+
+import 'package:moviesapp/Screen/movies_details_screen.dart';
+import 'package:moviesapp/data/movies_data.dart';
 import 'package:moviesapp/model/movie.dart';
 
 class MoviesListScreen extends StatefulWidget {
@@ -67,11 +68,13 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
     final List<Category> firstThreeCategories = categories.sublist(0, 3);
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Stack(children: [
-            Container(
+            SizedBox(
               height: 400,
               width: double.infinity,
               child: ClipRRect(
@@ -81,9 +84,9 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
                         _selectedImageUrl,
                         height: double.infinity,
                         width: double.infinity,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       )
-                    : const Center(child: Text(" Movie Selected")),
+                    : const Center(child: Text("No Movie Selected")),
               ),
             ),
             Positioned(
@@ -111,23 +114,18 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            child: Text(
-                              _selectedTitle,
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
+                          Text(
+                            _selectedTitle,
+                            style: const TextStyle(
+                              color: Colors.white,
                             ),
                           ),
-                          Container(
-                            // padding: EdgeInsets.fromLTRB(2, 12.0, 0, 0),
-                            child: Text(
-                              _duration,
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
+                          Text(
+                            _duration,
+                            style: const TextStyle(
+                              color: Colors.white,
                             ),
-                          )
+                          ),
                         ],
                       ),
                       const Spacer(),
@@ -166,7 +164,7 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
           ]),
         ),
         // Category Tabs
-        Container(
+        SizedBox(
           height: 50,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -250,7 +248,7 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
                               movie.movieimageurl,
                               height: double.infinity,
                               width: double.infinity,
-                              fit: BoxFit.fill,
+                              fit: BoxFit.cover,
                             ),
                             Positioned(
                                 top: 2,
@@ -265,21 +263,21 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
                                 left: 2,
                                 child: Row(
                                   children: [
-                                    CircleAvatar(
-                                      radius: 12,
-                                      backgroundImage:
-                                          NetworkImage(movie.movieactorurl),
+                                    Expanded(
+                                      child: CircleAvatar(
+                                        radius: 12,
+                                        backgroundImage:
+                                            NetworkImage(movie.movieactorurl),
+                                      ),
                                     ),
-                                    Positioned(
-                                        bottom: 2,
-                                        right: 4,
-                                        left: 8,
-                                        child: Text(
-                                          movie.title,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                              color: Colors.white),
-                                        )),
+                                    Expanded(
+                                      child: Text(
+                                        movie.title,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: const TextStyle(
+                                            color: Colors.white),
+                                      ),
+                                    ),
                                   ],
                                 )),
                           ],
