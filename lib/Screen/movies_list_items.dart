@@ -264,12 +264,23 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
                                 child: Row(
                                   children: [
                                     Expanded(
-                                      child: CircleAvatar(
-                                        radius: 12,
-                                        backgroundImage:
-                                            NetworkImage(movie.movieactorurl),
+                                        child: Container(
+                                      width:
+                                          24, // Set the width to double the radius
+                                      height:
+                                          24, // Set the height to double the radius
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          fit: BoxFit
+                                              .contain, // This is the key property you're looking for
+                                          image: NetworkImage(
+                                            movie
+                                                .movieactorurl, // Your image URL
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                    )),
                                     Expanded(
                                       child: Text(
                                         movie.title,

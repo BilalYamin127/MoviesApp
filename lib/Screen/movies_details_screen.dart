@@ -19,9 +19,10 @@ class _MoviesDetailsScreenState extends ConsumerState<MoviesDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final Movie movie = widget.selectedMovie;
-    final lm = ref.watch(liveMoviesprovider.notifier).getLiveMovies();
+    final liveMoviesList =
+        ref.watch(liveMoviesprovider.notifier).getLiveMovies();
     final List<Movie> liveMovies =
-        _showAllLiveMovies ? lm : lm.take(2).toList();
+        _showAllLiveMovies ? liveMoviesList : liveMoviesList.take(2).toList();
 
     return Scaffold(
       appBar: AppBar(
