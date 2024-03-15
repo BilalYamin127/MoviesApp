@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'package:moviesapp/Constant.dart/constants.dart';
+import 'package:moviesapp/constant/constants.dart';
 import 'package:moviesapp/model/movie_model.dart';
 
 final apiProvider = Provider<Api>((ref) {
