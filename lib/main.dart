@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:moviesapp/Screen/movies_screen.dart';
+
+import 'dart:io';
+
+import 'package:moviesapp/Screen/new_movies.dart';
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
 
 void main() {
+  HttpOverrides.global = MyHttpOverrides();
   runApp(
+    // (child: MyApp()),
     // Wrap your app with ProviderScope
     const ProviderScope(
       child: MyApp(),
@@ -23,7 +37,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue,
         fontFamily: 'Roboto',
       ),
-      home: const MoviesScreen(),
+      home: const ApiDataFetch(),
     );
   }
 }
